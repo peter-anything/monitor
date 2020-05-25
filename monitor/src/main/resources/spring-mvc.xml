@@ -15,7 +15,7 @@
     base-package="com.gsir.monitor.controller" />
 
   <!-- 注册MVC注解驱动 -->
-  <mvc:annotation-driven />
+  <mvc:annotation-driven/>
 
   <!-- 静态资源可访问的设置方式 -->
   <mvc:default-servlet-handler />

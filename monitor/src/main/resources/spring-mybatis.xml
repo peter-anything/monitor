@@ -37,22 +37,24 @@
     <property name="maxWait" value="${maxWait}"></property>
   </bean>
 
-  <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+  <!-- SqlSessionFactory Config -->
   <bean id="sqlSessionFactory"
-    class="org.mybatis.spring.SqlSessionFactoryBean">
+    class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
-    <!-- 自动扫描mapping.xml文件 -->
     <property name="mapperLocations"
-      value="classpath:com/gsir/monitor/mapping/*.xml"></property>
-    <property name="configLocation"
-      value="classpath:mybatis-config.xml"></property>
+      value="classpath:com/gsir/monitor/mapping/*.xml" />
+    <property name="plugins">
+      <array>
+        <!-- 分页插件配置 -->
+        <bean id="paginationInterceptor"
+          class="com.baomidou.mybatisplus.plugins.PaginationInterceptor">
+        </bean>
+      </array>
+    </property>
   </bean>
-
-  <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+  <!-- MyBatis Mapper Scan Config -->
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="com.gsir.monitor.dao" />
-    <property name="sqlSessionFactoryBeanName"
-      value="sqlSessionFactory"></property>
+    <property name="basePackage" value="com.gsir.monitor.mapper" />
   </bean>
 
   <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->

@@ -25,6 +25,7 @@
       <list>
         <value>classpath:jdbc.properties</value>
         <value>classpath:redis.properties</value>
+        <value>classpath:kafka.properties</value>
       </list>
     </property>
   </bean>
@@ -34,5 +35,11 @@
 
   <!-- 引入同文件夹下的redis属性配置文件 -->
   <import resource="spring-redis.xml" />
+
+  <!-- 引入同文件夹下的kafka producer属性配置文件 -->
+  <import resource="classpath:producer-kafka.xml" />
+
+  <!-- 引入同文件夹下的kafka consumer属性配置文件 -->
+  <import resource="classpath:consumer-kafka.xml" />
 
 </beans>

@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.BoundHashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -24,18 +23,6 @@ public class CacheUtils {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
-
-    public  StringRedisTemplate getStringRedisTemplate(int index){
-        return (StringRedisTemplate) getTemplate(stringRedisTemplate, index);
-    }
-    
-    public RedisTemplate getTemplate(RedisTemplate redisTemplate, int index) {
-        JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) redisTemplate.getConnectionFactory();
-        jedisConnectionFactory.setDatabase(11);
-        redisTemplate.setConnectionFactory(jedisConnectionFactory);
-
-        return redisTemplate;
-    }
 
     /**
      * 

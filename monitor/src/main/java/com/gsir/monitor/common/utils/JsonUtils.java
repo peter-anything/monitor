@@ -3,18 +3,18 @@ package com.gsir.monitor.common.utils;
 import java.io.IOException;
 import java.io.StringWriter;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonUtils {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     public static String beanToJson(Object obj) throws IOException {
         StringWriter sw = new StringWriter();
-        JsonGenerator gen = new JsonFactory().createJsonGenerator(sw);
+        JsonGenerator gen = new JsonFactory().createGenerator(sw);
         objectMapper.writeValue(gen, obj);
         gen.close();
 

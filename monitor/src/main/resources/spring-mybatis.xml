@@ -41,6 +41,8 @@
   <bean id="sqlSessionFactory"
     class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
+    <property name="configLocation"
+      value="classpath:mybatis-config.xml" />
     <property name="mapperLocations"
       value="classpath:com/gsir/monitor/mapping/*.xml" />
     <property name="plugins">
@@ -54,7 +56,8 @@
   </bean>
   <!-- MyBatis Mapper Scan Config -->
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="com.gsir.monitor.mapper" />
+    <property name="basePackage"
+      value="com.gsir.monitor.mapper" />
   </bean>
 
   <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
@@ -66,5 +69,6 @@
   <!-- 用户 -->
   <bean id="userService"
     class="com.gsir.monitor.service.impl.UserServiceImpl"></bean>
-
+  <bean id="projectService"
+    class="com.gsir.monitor.service.impl.ProjectServiceImpl"></bean>
 </beans>

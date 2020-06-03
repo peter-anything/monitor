@@ -16,12 +16,9 @@ import org.springframework.util.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-@Component
 public class CacheUtils {
-    @Resource
     private StringRedisTemplate stringRedisTemplate;
 
-    @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
     /**

@@ -20,10 +20,8 @@ import com.gsir.monitor.kafka.constant.KafkaMessageConstant;
  * @author peter.wang
  *
  */
-@Component
 public class KafkaProducerServer {
 
-    @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
     /**

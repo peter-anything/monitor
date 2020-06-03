@@ -5,14 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.annotation.JSONField;
 import com.gsir.monitor.common.utils.Requests;
 import com.gsir.monitor.common.utils.api.entities.Event;
-
-import lombok.Getter;
-import lombok.Setter;
-
 
 public class GitlablabAPI {
 

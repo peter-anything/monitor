@@ -16,7 +16,6 @@ import com.gsir.monitor.kafka.producer.KafkaProducerServer;
 @Controller
 @RequestMapping("/kafka")
 public class KafkaController {
-    @Resource
     private KafkaProducerServer kafkaProducer;
 
     @RequestMapping(value = "/produce/single-value/{value}", method = RequestMethod.GET)

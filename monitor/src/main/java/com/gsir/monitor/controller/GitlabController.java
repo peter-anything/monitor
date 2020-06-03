@@ -19,8 +19,28 @@ import com.gsir.monitor.service.ProjectService;
 @Controller
 @RequestMapping("/gitlab")
 public class GitlabController {
-    @Resource
     private ProjectService projectService;
+
+    public void quickSort(Integer[] arr, int low, int high) {
+        if (low <= high) {
+            return ;
+        }
+        int pivot = low;
+        int pivotValue = arr[pivot];
+        int i = low;
+        int j = high;
+        while (i < j) {
+            while (arr[j] >= pivotValue) {
+                --j;
+            }
+            int tmp = arr[i];
+            arr[j] = tmp;
+            arr[i] = tmp;
+            while (arr[i] <= pivotValue) {
+                 ++i;
+            }
+        }
+    }
 
     @RequestMapping(value = "/handler", method = RequestMethod.GET)
     @ResponseBody
@@ -35,6 +55,9 @@ public class GitlabController {
                 }
             }
         }
+
+        Integer[] arr = {7, 1, 2, 4, 3, 10, 0, 8};
+        quickSort(arr, 0, arr.length - 1);
 
         return ResponseData.success(projects);
     }
